@@ -8,9 +8,7 @@ import android.util.Log
 import android.view.View
 import android.widget.EditText
 import android.widget.RadioGroup
-import java.io.FileOutputStream
-import java.io.IOException
-import java.io.OutputStreamWriter
+import java.io.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -99,6 +97,33 @@ class MainActivity : AppCompatActivity() {
                     ioe.printStackTrace()
                 }
             }
+
+
+            /**No4-2: Read data from a file
+             * To check the file remember to sync
+             * It will be stored under data/data/<packagename>/files
+             * */
+            R.id.buttonReadText -> {
+                // read the file from the data/data/packagename
+                // read the file from the data/data/packagename
+                try {
+                    // reading from data/data/packagename/File
+                    val fin: FileInputStream = openFileInput("test.txt")
+                    val isr = InputStreamReader(fin)
+                    val inputBuffer = CharArray(100)
+                    var str: String? = ""
+                    var charRead: Int
+                    while (isr.read(inputBuffer).also { charRead = it } > 0) {
+                        val readString = String(inputBuffer, 0, charRead)
+                        str += readString
+                    }
+                    et.setText(str)
+                } catch (ioe: IOException) {
+                    ioe.printStackTrace()
+                }
+            }
+
+
 
 
         }
