@@ -1,5 +1,6 @@
 package tdao.example.android_severalactivities_storeddata
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -83,6 +84,7 @@ class MainActivity : AppCompatActivity() {
     /**No2-3: Where we get data back from 2nd activity and others*/
     override fun onResume() {
         super.onResume()
+
         Log.d(PROG_NAME, spinValue.toString())
         Log.d(PROG_NAME, "onResume")
         // set the radiobutton checked to correct number from secondactivity
@@ -93,5 +95,17 @@ class MainActivity : AppCompatActivity() {
             4 -> radioGroup.check(R.id.radioButton4)
         }
     }
+
+    override fun onPause() {
+        super.onPause()
+
+        /**No3-1: SharedPreferences when the application is closed*/
+        // save the name in the EditText to the shared preference
+        val prefsEditor = getSharedPreferences(PROG_NAME, Context.MODE_PRIVATE).edit()
+        prefsEditor.putString("name", et.text.toString())
+        prefsEditor.apply()
+    }
+
+
 
 }
