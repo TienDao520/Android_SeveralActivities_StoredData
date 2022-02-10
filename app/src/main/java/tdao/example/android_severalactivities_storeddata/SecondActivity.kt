@@ -2,6 +2,7 @@ package tdao.example.android_severalactivities_storeddata
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Spinner
 import android.widget.TextView
 
@@ -29,5 +30,16 @@ class SecondActivity : AppCompatActivity() {
         spinner.setSelection(i-1)
     }
 
+    fun onButtonClose(view: View) {
+        /**No2-2: when we want to destroy 2nd activity and give values back to Main activity via companion object*/
+        // send the data back to the mainActivity of number selected via the companion object
+        // getting the spinnerValue (note as a string) and cast to an int and then set it to the spinValue in the companion object
+        MainActivity.spinValue = Integer.parseInt(spinner.selectedItem.toString())
+        // use finish to destroy this second activity so next time called won't have two instances of the second activity
+        finish()
+        // if you go back to the mainActivity by launching a new intent, the you will have multiple instances of your mainActivity
+        //       val intent = Intent(this, MainActivity::class.java)
+        //       startActivity(intent)
+    }
 
 }
