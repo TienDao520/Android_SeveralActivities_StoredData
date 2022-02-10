@@ -94,6 +94,13 @@ class MainActivity : AppCompatActivity() {
             3 -> radioGroup.check(R.id.radioButton3)
             4 -> radioGroup.check(R.id.radioButton4)
         }
+        /**No3-2: open SharedPreferences get data after app resume*/
+        /**Check data in Device File Explorer folder data -> data-> program name -> shared_prefs -> .xml file*/
+        // reading the shared prefences to restore the edit text field with the last name in it before
+        // leaving this acitivity
+        val prefsEditor = getSharedPreferences(PROG_NAME, Context.MODE_PRIVATE)
+        // second parameter "" what to set the editText if no shared pref file exists
+        et.setText(prefsEditor.getString("name", ""))
     }
 
     override fun onPause() {
