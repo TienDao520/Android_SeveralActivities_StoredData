@@ -1,3 +1,20 @@
 <resources>
-    <string name="app_name">Android_SeveralActivities_StoredData</string>
+    <string name="app_name">SeveralActivities</string>
+    <string name="name">Name:</string>
+    <string name="btn">Open New Activity</string>
+    <string name="close">Close second activity</string>
+    <string name="one">1</string>
+    <string name="two">2</string>
+    <string name="three">3</string>
+    <string name="four">4</string>
+    <string-array name="nums">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+    <string name="savename">Save name to text file</string>
+    <string name="readname">Read name from text file</string>
+    <string name="savejson">Save JSON data to file</string>
+    <string name="readjson">Read JSON data from file</string>
 </resources>
