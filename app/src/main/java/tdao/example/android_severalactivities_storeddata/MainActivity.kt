@@ -8,6 +8,9 @@ import android.util.Log
 import android.view.View
 import android.widget.EditText
 import android.widget.RadioGroup
+import java.io.FileOutputStream
+import java.io.IOException
+import java.io.OutputStreamWriter
 
 class MainActivity : AppCompatActivity() {
 
@@ -78,6 +81,26 @@ class MainActivity : AppCompatActivity() {
                 //starting the activity by passing the intent to it.
                 startActivity(intent)
             }
+
+
+            /**No4-1: Save data to a file
+             * To check the file remember to sync
+             * It will be stored under data/data/<packagename>/files
+             * */
+            R.id.buttonSaveText -> {
+                try {
+                    // to save to file "test.txt" in data/data/packagename/File
+                    val ofile: FileOutputStream = openFileOutput("test.txt", MODE_PRIVATE)
+                    val osw = OutputStreamWriter(ofile)
+                    osw.write(et.getText().toString())
+                    osw.flush()
+                    osw.close()
+                } catch (ioe: IOException) {
+                    ioe.printStackTrace()
+                }
+            }
+
+
         }
     }
 
