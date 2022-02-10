@@ -14,6 +14,15 @@ class MainActivity : AppCompatActivity() {
     lateinit var radioGroup: RadioGroup
     lateinit var et: EditText
 
+    /**No2-1: where we create a companion object*/
+    // companion object - A singleton that acts like a static variable
+    // so it can be accessed directly via the name of the containing class
+    companion object {
+        const val PROG_NAME = "SEVERALACTIVITIES"
+        var name:String = ""
+        var spinValue:Int = 1
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)

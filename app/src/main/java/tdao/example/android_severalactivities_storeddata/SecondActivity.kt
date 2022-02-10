@@ -28,4 +28,6 @@ class SecondActivity : AppCompatActivity() {
         spinner = findViewById(R.id.spinner)
         spinner.setSelection(i-1)
     }
+
+
 }
