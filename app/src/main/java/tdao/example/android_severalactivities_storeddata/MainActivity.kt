@@ -3,6 +3,7 @@ package tdao.example.android_severalactivities_storeddata
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.EditText
 import android.widget.RadioGroup
@@ -77,6 +78,20 @@ class MainActivity : AppCompatActivity() {
                 startActivity(intent)
             }
         }
-
     }
+
+    /**No2-3: Where we get data back from 2nd activity and others*/
+    override fun onResume() {
+        super.onResume()
+        Log.d(PROG_NAME, spinValue.toString())
+        Log.d(PROG_NAME, "onResume")
+        // set the radiobutton checked to correct number from secondactivity
+        when (spinValue) {
+            1 -> radioGroup.check(R.id.radioButton1)
+            2 -> radioGroup.check(R.id.radioButton2)
+            3 -> radioGroup.check(R.id.radioButton3)
+            4 -> radioGroup.check(R.id.radioButton4)
+        }
+    }
+
 }
