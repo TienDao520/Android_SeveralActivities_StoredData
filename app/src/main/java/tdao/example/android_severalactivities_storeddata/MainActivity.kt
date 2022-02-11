@@ -133,6 +133,8 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+
+
     /**No2-3: Where we get data back from 2nd activity and others*/
     override fun onResume() {
         super.onResume()
