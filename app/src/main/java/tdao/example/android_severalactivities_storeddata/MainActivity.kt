@@ -133,7 +133,24 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-
+    /**No5-4: func get data from Json file
+     * Json file was getting from the created assets folder
+     * */
+    fun getJSONDataFromAsset(context:Context, filename:String):String? {
+        val jsonString:String
+        try {
+            // Use bufferedReader
+            // Closable.use will automatically close the input at the end of execution
+            // it.reader.readText()  is automatically
+            jsonString = context.assets.open(filename).bufferedReader().use {
+//            jsonString = this.assets.open(filename).bufferedReader().use {
+                it.readText() }
+        } catch(ioException:IOException) {
+            ioException.printStackTrace()
+            return null
+        }
+        return jsonString
+    }
 
     /**No2-3: Where we get data back from 2nd activity and others*/
     override fun onResume() {
