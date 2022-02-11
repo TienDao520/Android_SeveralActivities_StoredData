@@ -26,6 +26,10 @@ class MainActivity : AppCompatActivity() {
         var spinValue:Int = 1
     }
 
+    /**No5-3: create collection*/
+    //varialbe used to stream in the data from the JSON file.
+    var people:List<Person> = listOf<Person>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
