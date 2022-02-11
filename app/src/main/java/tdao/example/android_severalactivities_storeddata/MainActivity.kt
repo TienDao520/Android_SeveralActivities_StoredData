@@ -8,6 +8,8 @@ import android.util.Log
 import android.view.View
 import android.widget.EditText
 import android.widget.RadioGroup
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import java.io.*
 
 class MainActivity : AppCompatActivity() {
@@ -127,7 +129,18 @@ class MainActivity : AppCompatActivity() {
                 }
             }
 
-
+            /**No5-4: Read data from json file
+             * Json file was getting from the created assets folder
+             * */
+            R.id.buttonReadJSON -> {
+                val jsonStringFromFile = getJSONDataFromAsset(this,"test.json")
+                val listPersonType = object : TypeToken<List<Person>>() {}.type
+                //pass the filename and object with Person class type for streaming data
+                //Storing all get data to people variable
+                people = Gson().fromJson(jsonStringFromFile, listPersonType)
+                //use kotlin like Log.d to show information
+                println(people)
+            }
 
 
         }
