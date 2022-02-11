@@ -142,6 +142,29 @@ class MainActivity : AppCompatActivity() {
                 println(people)
             }
 
+            /**No5-6: Save data to json file
+             * Check the integrated steps in Module build.gradle files
+             * file will be stored in to files -> test.json
+             * */
+            R.id.buttonSaveJSON -> {
+                try {
+                    // to save to JSON file "test.json" in data/data/packagename/File
+                    //osw stand for output stream writer
+                    val ofile: FileOutputStream = openFileOutput("test.json", MODE_PRIVATE)
+                    val osw = OutputStreamWriter(ofile)
+                    //Different with the test.txt file
+                    var jsonList = Gson().toJson(people)
+                    for(person in jsonList) {
+                        osw.write(person.toString())
+                    }
+                    osw.flush()
+                    osw.close()
+                } catch (ioe: IOException) {
+                    ioe.printStackTrace()
+                }
+            }
+
+
 
         }
     }
