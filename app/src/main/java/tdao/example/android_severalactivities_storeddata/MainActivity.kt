@@ -129,7 +129,7 @@ class MainActivity : AppCompatActivity() {
                 }
             }
 
-            /**No5-4: Read data from json file
+            /**No5-5: Read data from json file
              * Json file was getting from the created assets folder
              * */
             R.id.buttonReadJSON -> {
